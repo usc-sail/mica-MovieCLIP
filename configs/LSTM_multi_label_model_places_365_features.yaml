@@ -1,0 +1,38 @@
+data:
+  feature_folder: /proj/digbose92/ambience/features/places365_4_fps
+  train_txt_file: ../../../txt_files/multi_label_files/train_multi_label_thresh_0_4_0_1_150_labels.txt
+  val_txt_file: ../../../txt_files/multi_label_files/val_multi_label_thresh_0_4_0_1_150_labels.txt
+device:
+  is_cuda: true
+loss:
+  loss_option: bce_cross_entropy_loss
+  pos_weights_file: /proj/digbose92/ambience/pkl-files/pos_weights_multi_label.pkl
+model:
+  batch_first: true
+  embedding_dim: 512
+  model_type: LSTM
+  n_classes: 150
+  n_hidden: 512
+  n_layers: 2
+  option: LSTM_video_complete_dropout_movie_background_scenes_multi_label_step_lr_cross_entropy_loss
+optimizer:
+  choice: AdamW
+  decay: 0.001
+  factor: 0.5
+  gamma: 0.5
+  lr: 1e-3
+  mode: max
+  patience: 5
+  scheduler: step_lr
+  step_size: 15
+  verbose: true
+output:
+  log_dir: /proj/digbose92/ambience/log_dirs
+  model_dir: /proj/digbose92/ambience/saved_models
+parameters:
+  batch_size: 32
+  early_stop: 5
+  epochs: 100
+  max_len: 20
+  train_shuffle: true
+  val_shuffle: false

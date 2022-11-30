@@ -1,0 +1,38 @@
+data:
+  feature_folder: /data/ambience/Condensed_Movies/features/vit_4_fps/vit_base
+  train_txt_file: /data/digbose92/ambience_detection/condensed_movies_txt_files/multi_label/train_multi_label_thresh_0_4_0_1_150_labels.txt
+  val_txt_file: /data/digbose92/ambience_detection/condensed_movies_txt_files/multi_label/val_multi_label_thresh_0_4_0_1_150_labels.txt
+device:
+  is_cuda: true
+loss:
+  loss_option: bce_cross_entropy_loss
+  pos_weights_file: /data/digbose92/ambience_detection/pkl-files/new_splits_multi_label_pkl_files/pos_weights_multi_label.pkl
+model:
+  batch_first: true
+  embedding_dim: 768
+  model_type: LSTM
+  n_classes: 150
+  n_hidden: 512
+  n_layers: 2
+  option: LSTM_video_complete_dropout_movie_background_scenes_multi_label_cross_entropy_loss
+optimizer:
+  choice: AdamW
+  decay: 0.001
+  factor: 0.5
+  gamma: 0.5
+  lr: 1e-3
+  mode: max
+  patience: 5
+  scheduler: step_lr
+  step_size: 15
+  verbose: true
+output:
+  log_dir: /data/digbose92/ambience_detection/baseline_models/logs_dir
+  model_dir: /data/digbose92/ambience_detection/baseline_models/model_dir
+parameters:
+  batch_size: 32
+  early_stop: 5
+  epochs: 50
+  max_len: 20
+  train_shuffle: true
+  val_shuffle: false
