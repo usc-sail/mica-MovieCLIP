@@ -1,6 +1,14 @@
 # mica-MovieCLIP
 This repository contains the codebase for MovieCLIP: Visual Scene Recognition in Movies
 
+## Installation 
+
+```
+conda create -n py37env python=3.7
+
+conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.1 -c pytorch
+
+```
 
 If you find this repository useful, please cite the following paper:
 ```bibtex
