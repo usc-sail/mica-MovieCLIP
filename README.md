@@ -1,16 +1,22 @@
 # mica-MovieCLIP
 This repository contains the codebase for MovieCLIP: Visual Scene Recognition in Movies
 
-## Installation 
+## **Installation**
 
-Install the environment for training the LSTM models using the following commands:
+Install the environment for training the baseline LSTM models using the following commands:
 ```
 conda create -n py37env python=3.7
-
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.1 -c pytorch
-
 pip install -r requirements.txt --use-deprecated=legacy-resolver
 ```
+
+Install [**CLIP**](https://github.com/openai/CLIP) dependencies using the following commands:
+```
+pip install ftfy regex tqdm
+pip install git+https://github.com/openai/CLIP.git
+```
+
+
 
 If you find this repository useful, please cite the following paper:
 ```bibtex
