@@ -1,0 +1,179 @@
+booth
+desert
+courtyard
+race track
+bank
+computer room
+ballroom
+helicopter
+skyline
+alley
+bathroom
+town
+amusement park
+war room
+hall
+park
+street
+penthouse
+residence
+phone booth
+forest
+dining room
+city hall
+parking
+office
+road
+suburban
+dorm
+safe house
+auditorium
+beach
+manor
+gym
+building
+retail
+garage
+plane
+chapel
+ship
+mansion
+classroom
+farm
+overpass
+cellar
+fire station
+boat
+shack
+airport
+truck
+bridge
+zoo
+clinic
+townhouse
+kitchen
+school
+inn
+interrogation room
+grove
+pool
+prison
+boxing ring
+house
+mountain
+church
+bakery
+makeup studio
+arena
+closet
+cafe
+station
+waterfall
+loft
+cave
+foundry
+ice rink
+fair
+tennis court
+restaurant
+shooting range
+car
+palace
+bay
+conference room
+study
+tent
+corridor
+workshop
+casino
+hot spring
+bowling alley
+post office
+cockpit
+balcony
+graveyard
+meadow
+batting cage
+swamp
+baseball field
+cabin
+battlefield
+home
+banquet
+theater
+police station
+press room
+valley
+bullring
+lake
+living room
+cottage
+cab
+hangar
+tower
+stadium
+apartment
+grassland
+sea
+concert hall
+village
+club
+hotel
+barn
+wagon
+control room
+kindergarten
+hospital
+lounge
+estate
+attic
+museum
+river
+train
+library
+downtown
+room
+studio
+garden
+automotive repair
+castle
+morgue
+art gallery
+yard
+courtroom
+funeral
+locker room
+stairs
+bus
+bar
+courthouse
+lobby
+playground
+stage
+archaeological site
+sandbank
+farmhouse
+subway
+factory
+mall
+basketball court
+basement
+market
+warehouse
+harbor
+tunnel
+agriculture field
+walkway
+shore
+gas station
+animal shelter
+construction site
+deck
+laboratory
+bedroom
+golf course
+salon
+shuttle
+plaza
+elevator
+pond
