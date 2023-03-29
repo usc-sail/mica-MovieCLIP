@@ -16,6 +16,12 @@ pip install ftfy regex tqdm
 pip install git+https://github.com/openai/CLIP.git
 ```
 
+## **To Dos**
+
+- [ ] Add the dataset link and instructions for using the MovieCLIP dataset
+- [ ] Add code for tagging using the CLIP model
+- [ ] Add code for training the baseline LSTM models
+- [ ] Add code for openmmlab setup and Swin-B model inference
 
 
 If you find this repository useful, please cite the following paper:

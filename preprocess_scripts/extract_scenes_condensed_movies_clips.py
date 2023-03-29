@@ -13,16 +13,6 @@ file_list_pickle_file="/data/digbose92/ambience_detection/pkl-files/Condensed_Mo
 with open(file_list_pickle_file,"rb") as f:
     file_list=pickle.load(f)
 
-# def extract_scene_clips(idx):
-#     vid_file=file_list[idx]
-#     file_key=vid_file.split("/")[-1][:-4]
-#     subfolder=os.path.join(destination_scenes_folder,file_key)
-#     csv_scenes_file=os.path.join(csv_scenes_folder,file_key+".csv")
-
-#     if(os.path.exists(csv_scenes_file) is False):
-#         os.mkdir(subfolder)
-#         scene_detect_command="scenedetect --input "+vid_file+ " -s "+csv_scenes_file+" detect-content list-scenes split-video -o "+subfolder
-#         os.system(scene_detect_command)
 def extract_scene_clips(idx):
     vid_file=file_list[idx]
     file_key=vid_file.split("/")[-1][:-4]
