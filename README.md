@@ -18,7 +18,7 @@ This repository contains the codebase for MovieCLIP: Visual Scene Recognition in
 
 ## **Data setup**
 
-* Please refer to [DATASET.md](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/DATASET.md) under the ```data_splits``` folder for instructions on using the MovieCLIP dataset.
+* Please refer to [**DATASET.md**](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/DATASET.md) under the ```data_splits``` folder for instructions on using the MovieCLIP dataset.
 
 ## **To Dos**
 
