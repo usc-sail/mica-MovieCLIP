@@ -4,6 +4,7 @@ import json
 import argparse
 from tqdm import tqdm  
 import pickle
+from collections import Counter
 #json file with the keys as video id and sub keys as the Scene Number 
 #for each scene number there is a sub-dictionary with labels and scores, Start time and end time 
 
@@ -25,6 +26,9 @@ def generate_video_key_wise_dictionary(file_key,csv_data,tag_data):
     #assert(len(tag_data)==len(csv_data['Scene Number']))
     shot_level_dict={}
     num_clean_samples_video=0
+    total_set_labels=[]
+
+
     for i in range(len(csv_data['Scene Number'])):
         
         #scene number + start time + end time
@@ -47,6 +51,7 @@ def generate_video_key_wise_dictionary(file_key,csv_data,tag_data):
             if(len(scores_list)>0):
                 if(scores_list[0]>=0.4):
                     num_clean_samples_video+=1
+                    total_set_labels=total_set_labels+labels_list
 
             #create a dict with the labels_list and scores_list
             label_dict={ labels_list[i]:scores_list[i] for i in range(len(labels_list))}
@@ -61,7 +66,7 @@ def generate_video_key_wise_dictionary(file_key,csv_data,tag_data):
             
             shot_level_dict[key_name]=temp_dict
 
-    return(shot_level_dict,num_clean_samples_video)
+    return(shot_level_dict,num_clean_samples_video,total_set_labels)
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--destination_folder', type=str, required=True)
@@ -102,6 +107,7 @@ not_equal_list=[]
 total_tagged_samples=0
 movieCLIP_dict={}
 num_samples=0
+total_labels=[]
 
 for file in tqdm(total_segment_files):
     
@@ -130,11 +136,12 @@ for file in tqdm(total_segment_files):
         else:
            
             #generate_video_key_wise_dictionary(tag_file_name,shot_csv_data,clip_tag_data)
-            shot_level_dict,total_clean_samples_per_video=generate_video_key_wise_dictionary(tag_file_name,shot_csv_data,clip_tag_data)
+            shot_level_dict,total_clean_samples_per_video,total_clean_labels_list=generate_video_key_wise_dictionary(tag_file_name,shot_csv_data,clip_tag_data)
             total_clean_samples_video+=total_clean_samples_per_video
-            #print(tag_file_name)
+            total_labels=total_labels+total_clean_labels_list #total clean labels list
+            
             movieCLIP_dict[tag_file_name]=shot_level_dict
-            #print(movieCLIP_dict[tag_file_name])
+            
             total_tagged_samples+=len(shot_level_dict)
             equal_files+=1
             num_samples+=1
@@ -151,13 +158,29 @@ print("Total files equal: ",equal_files) #0
 print("Total tagged samples: ",total_tagged_samples) #0
 print("Total clean samples: ",total_clean_samples_video) #0
 
-#save the empty tagged files list
-with open(os.path.join(dest_folder,'empty_tagged_file_list.pkl'),'wb') as f:
-    pickle.dump(empty_tagged_file_list,f)
+# #save the empty tagged files list
+# with open(os.path.join(dest_folder,'empty_tagged_file_list.pkl'),'wb') as f:
+#     pickle.dump(empty_tagged_file_list,f)
 
-#save the not present list
-with open(os.path.join(dest_folder,'not_equal_list.pkl'),'wb') as f:
-    pickle.dump(not_equal_list,f)
+# #save the not present list
+# with open(os.path.join(dest_folder,'not_equal_list.pkl'),'wb') as f:
+#     pickle.dump(not_equal_list,f)
+
+# print the distribution of the labels
+total_clean_label_counter=Counter(total_labels)
+total_clean_labels_dict=dict(total_clean_label_counter)
+
+#save the dictionary as a json
+with open(os.path.join(dest_folder,'movieCLIP_dataset_class_clean_distribution.json'),'w') as f:
+    json.dump(total_clean_labels_dict,f,indent=4)
+
+#print(total_clean_label_counter)
+
+#plot the distribution of the labels using a
+
+
+
+
 #save the dictionary as a json
 #print(movieCLIP_dict)
 # with open(os.path.join(dest_folder,'movieCLIP_dataset.json'),'w') as f:
