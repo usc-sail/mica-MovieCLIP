@@ -63,8 +63,20 @@
         }
     ```
 
-    ## TODOS
-        * Check the distribution of the labels from the json if they look the same as previous version
+    For example, to access the CLIP tags associated with the shot```qM8jk56Vj9Y-Scene-018.mp4``` present in the video id ```qM8jk56Vj9Y-Scene-018.mp4```, use ```movieCLIP_tags['qM8jk56Vj9Y']['qM8jk56Vj9Y-Scene-018.mp4']['labels']```. This gives CLIP tags with their corresponding ```CLIPScene``` scores for the shot.
+
+
+## Label distribution 
+
+* Out of the 179 visual scene labels present in **MovieCLIP_taxonomy_split.txt**, we use 150 visual scene labels after thresholding on the top-1 CLIPScene score (>=0.4) and top-k(k=2 to 5) CLIPScene scores (>=0.1). the list of 150 visual scene labels can be found in the file **label_2_ind_multi_label_thresh_0_4_0_1_150_label_map.pkl**. Sample mapping is shown as below
+
+```python
+{'courtroom': 0,'police station': 1,'mountain': 2,'swamp': 3,
+ 'train': 4,'corridor': 5,'baseball field': 6,'garage': 7,'bakery': 8,'stairs': 9, 'pool': 10,'road': 11,'park': 12,
+'church': 13,'desert': 14,...}
+```
+
+
 
 
 
