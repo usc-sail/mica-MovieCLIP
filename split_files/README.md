@@ -1,5 +1,8 @@
 # MovieCLIP Dataset
 
+## Complete Taxonomy
+
+* The entire list of 179 visual scene labels in MovieCLIP dataset can be found in the file **MovieCLIP_taxonomy_split.txt**.
 
 ## Raw videos 
 
