@@ -22,7 +22,7 @@ This repository contains the codebase for MovieCLIP: Visual Scene Recognition in
 
 ## **To Dos**
 
-- [ ] Add the dataset link and instructions for using the MovieCLIP dataset
+- [x] Add the dataset link and instructions for using the MovieCLIP dataset
 - [ ] Add code for tagging using the CLIP model
 - [ ] Add code for training the baseline LSTM models
 - [ ] Add code for openmmlab setup and Swin-B model inference

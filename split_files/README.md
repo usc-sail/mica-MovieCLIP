@@ -68,16 +68,39 @@
 
     For example, to access the CLIP tags associated with the shot```qM8jk56Vj9Y-Scene-018.mp4``` present in the video id ```qM8jk56Vj9Y-Scene-018.mp4```, use ```movieCLIP_tags['qM8jk56Vj9Y']['qM8jk56Vj9Y-Scene-018.mp4']['labels']```. This gives CLIP tags with their corresponding ```CLIPScene``` scores for the shot.
 
+* The shots can be extracted from original videos using the provided ```start_time``` and ```end_time``` by using the following command (Format the start and end times using ```hh:mm:ss``` string format):
+
+    ```bash
+    ffmpeg -ss <start_time> -i <video_name specified by video id> -to <end_time> -c copy <output_shot_name>
+    ```
 
 ## Label distribution 
 
 * Out of the 179 visual scene labels present in **MovieCLIP_taxonomy_split.txt**, we use 150 visual scene labels after thresholding on the top-1 CLIPScene score (>=0.4) and top-k(k=2 to 5) CLIPScene scores (>=0.1). the list of 150 visual scene labels can be found in the file **label_2_ind_multi_label_thresh_0_4_0_1_150_label_map.pkl**. Sample mapping is shown as below
 
-```python
-{'courtroom': 0,'police station': 1,'mountain': 2,'swamp': 3,
- 'train': 4,'corridor': 5,'baseball field': 6,'garage': 7,'bakery': 8,'stairs': 9, 'pool': 10,'road': 11,'park': 12,
-'church': 13,'desert': 14,...}
-```
+    ```python
+    {'courtroom': 0,'police station': 1,'mountain': 2,'swamp': 3,
+    'train': 4,'corridor': 5,'baseball field': 6,'garage': 7,'bakery': 8,'stairs': 9,   
+     'pool': 10,'road': 11,'park': 12,
+    'church': 13,'desert': 14,...}
+    ```
+## Training/Testing/Validation split
+
+*  The training, validation and text splits are present in the files **train_multi_label_thresh_0_4_0_1_150_labels.txt**, **val_multi_label_thresh_0_4_0_1_150_labels.txt** and **test_multi_label_thresh_0_4_0_1_150_labels.txt** respectively. The organization of each line in the files are as follows:
+    ```text
+    <shot name> <label index>
+    rAchA32z2zM/rAchA32z2zM-Scene-009.mp4 63
+    Vje8Fp3yQFM/Vje8Fp3yQFM-Scene-002.mp4 88
+    UxIpYfsTkew/UxIpYfsTkew-Scene-042.mp4 142 75
+    z9SXvUdM_iw/z9SXvUdM_iw-Scene-001.mp4 35 50
+    ```
+
+## Comments
+
+* After thresholding, interrogation room and room have been merged into the a single label room .
+ * Phone booth and booth have been merged into the a single label booth.
+
+
 
 
 
