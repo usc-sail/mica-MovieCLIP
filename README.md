@@ -20,10 +20,14 @@ This repository contains the codebase for MovieCLIP: Visual Scene Recognition in
 
 * Please refer to [**README.md**](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md) under the ```data_splits``` folder for instructions on using the MovieCLIP dataset.
 
+## **Visual scene tagging**
+
+* Please refer to [**README.md**](https://github.com/usc-sail/mica-MovieCLIP/blob/main/preprocess_scripts/visual_scene_tagging/README.md) under the ```preprocess_scripts/visual_scene_tagging``` folder for instructions on using the CLIP model for tagging the visual scenes in the MovieCLIP dataset.
+
 ## **To Dos**
 
 - [x] Add the dataset link and instructions for using the MovieCLIP dataset
-- [ ] Add code for tagging using the CLIP model
+- [x] Add code for tagging using the CLIP model
 - [ ] Add code for training the baseline LSTM models
 - [ ] Add code for openmmlab setup and Swin-B model inference
 
